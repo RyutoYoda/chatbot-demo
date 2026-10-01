@@ -47,7 +47,9 @@ footer.site a { color: var(--accent); }
 .chat { display: flex; flex-direction: column; overflow: hidden; }
 
 .log {
-  height: 330px;
+  /* 「こんにちは」「さようなら」の2往復＋冒頭の案内が、
+     スクロールなしで収まる高さ（実測388px）を確保する */
+  height: 400px;
   overflow-y: auto;
   padding: 16px;
   display: flex;
