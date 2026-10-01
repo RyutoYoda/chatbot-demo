@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ルールベース chatbot デモ</title>
+<meta name="description" content="入力文をどう解釈したかを画面に出すルールベースのチャットボット。ログイン不要。">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site">
+  <h1>ルールベース chatbot デモ</h1>
+  <p class="lead">
+    「こんにちは」「さようなら」と入力してみてください。
+    入力をどう解釈したかは<strong>右（スマホでは下）の内訳</strong>に出ます。
+  </p>
+</header>
+
+<main class="layout">
+  <section class="chat" aria-label="チャット">
+    <div id="log" class="log" role="log" aria-live="polite"></div>
+
+    <div class="chips" id="chips" aria-label="入力例"></div>
+
+    <form id="form" class="composer" autocomplete="off">
+      <label class="sr-only" for="input">メッセージ</label>
+      <input id="input" type="text" placeholder="メッセージを入力" maxlength="120">
+      <button type="submit">送信</button>
+    </form>
+  </section>
+
+  <aside class="inspect" aria-label="認識の内訳">
+    <h2>認識の内訳</h2>
+    <p class="hint" id="hint">まだ入力がありません。</p>
+    <dl id="detail" class="detail" hidden>
+      <dt>入力</dt><dd id="d-raw"></dd>
+      <dt>正規化後</dt><dd id="d-norm"></dd>
+      <dt>採用した意図</dt><dd id="d-intent"></dd>
+      <dt>スコア</dt><dd id="d-score"></dd>
+      <dt>当たり方</dt><dd id="d-method"></dd>
+      <dt>一致した学習フレーズ</dt><dd id="d-utt"></dd>
+    </dl>
+    <h3 id="cand-head" hidden>候補の上位3件</h3>
+    <ul id="cands" class="cands"></ul>
+    <p class="note" id="thnote" hidden></p>
+  </aside>
+</main>
+
+<footer class="site">
+  <p>
+    熊本大学大学院 教授システム学専攻　ラーニングテクノロジーII タスク13 ／
+    <a href="https://github.com/RyutoYoda/chatbot-demo">ソース（GitHub）</a>
+  </p>
+</footer>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
